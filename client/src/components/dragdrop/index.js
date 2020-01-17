@@ -13,11 +13,13 @@ const data = [
 
 const DragList = () => {
   const [draggedIdx, setDraggedIdx] = useState(null);
+  const [dragItem, setDragItem] = useState(null);
   const [dragList, setDragList] = useState(data);
 
   const handleDragStart = (e, i) => {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', e.target);
+    setDragItem(parseInt(e.target.textContent, 10));
     setDraggedIdx(i);
   };
 
@@ -31,6 +33,7 @@ const DragList = () => {
 
   const handleDragEnd = () => {
     setDraggedIdx(null);
+    setDragItem(null);
   };
 
   return (
@@ -43,6 +46,7 @@ const DragList = () => {
           onDragStart={e => handleDragStart(e, i)}
           onDragEnter={() => handleDragEnter(i)}
           onDragEnd={handleDragEnd}
+          dragging={item.index === dragItem}
         />
       ))}
     </Styled.DropZone>

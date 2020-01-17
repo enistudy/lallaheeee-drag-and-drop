@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import * as Styled from './style';
 
 const DragItem = ({
@@ -6,6 +6,7 @@ const DragItem = ({
   onDragStart,
   onDragEnter,
   onDragEnd,
+  dragging,
 }) => (
   index && (
     <Styled.Item
@@ -13,10 +14,11 @@ const DragItem = ({
       onDragStart={onDragStart}
       onDragEnter={onDragEnter}
       onDragEnd={onDragEnd}
+      dragging={dragging}
     >
       {index}
     </Styled.Item>
   )
 );
 
-export default DragItem;
+export default memo(DragItem);

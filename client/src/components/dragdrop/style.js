@@ -8,6 +8,7 @@ const Item = styled.li`
   margin: 0.2rem;
   padding: 1.3rem;
   text-align: center;
+  opacity: ${({ dragging }) => (dragging ? 0.2 : 1)};
 `;
 
 const DropZone = styled.ul`
