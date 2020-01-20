@@ -34,22 +34,19 @@ const DragList = () => {
     setDragItem(null);
   };
 
-  return (
-    <Styled.DropZone>
-      {dragList.map((item, i) => (
-        <Styled.Item
-          key={item.index}
-          draggable
-          onDragStart={e => handleDragStart(e, i)}
-          onDragEnter={e => handleDragEnter(e, i)}
-          onDragEnd={handleDragEnd}
-          dragging={item.index === dragItem}
-        >
-          {item.index}
-        </Styled.Item>
-      ))}
-    </Styled.DropZone>
-  );
+  const ListMap = dragList.map((item, i) => (
+    <li
+      key={`drag-id: ${item.index}`}
+      draggable
+      onDragStart={e => handleDragStart(e, i)}
+      onDragEnter={e => handleDragEnter(e, i)}
+      onDragEnd={handleDragEnd}
+    >
+      <Styled.Item dragging={dragItem === item.index}>{item.index}</Styled.Item>
+    </li>
+  ));
+
+  return <Styled.DropZone>{ListMap}</Styled.DropZone>;
 };
 
-export default DragList;
+export default React.memo(DragList);
