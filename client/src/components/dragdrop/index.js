@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import * as Styled from './style';
-import DragItem from './Item';
 
 const data = [
   { index: 1 },
@@ -17,13 +16,12 @@ const DragList = () => {
   const [dragList, setDragList] = useState(data);
 
   const handleDragStart = (e, i) => {
-    e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', e.target);
     setDragItem(parseInt(e.target.textContent, 10));
     setDraggedIdx(i);
   };
 
-  const handleDragEnter = idx => {
+  const handleDragEnter = (e, idx) => {
     const newList = dragList.filter((item, i) => i !== draggedIdx);
     newList.splice(idx, 0, dragList[draggedIdx]);
 
@@ -39,15 +37,16 @@ const DragList = () => {
   return (
     <Styled.DropZone>
       {dragList.map((item, i) => (
-        <DragItem
+        <Styled.Item
           key={item.index}
-          index={item.index}
           draggable
           onDragStart={e => handleDragStart(e, i)}
-          onDragEnter={() => handleDragEnter(i)}
+          onDragEnter={e => handleDragEnter(e, i)}
           onDragEnd={handleDragEnd}
           dragging={item.index === dragItem}
-        />
+        >
+          {item.index}
+        </Styled.Item>
       ))}
     </Styled.DropZone>
   );
