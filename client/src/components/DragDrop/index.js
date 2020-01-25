@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as Styled from './style';
+import './style.scss';
 
 const data = [
   { index: 1 },
@@ -36,17 +36,18 @@ const DragList = () => {
 
   const ListMap = dragList.map((item, i) => (
     <li
+      className="draggable"
       key={`drag-id: ${item.index}`}
       draggable
       onDragStart={e => handleDragStart(e, i)}
       onDragEnter={e => handleDragEnter(e, i)}
       onDragEnd={handleDragEnd}
     >
-      <Styled.Item dragging={dragItem === item.index}>{item.index}</Styled.Item>
+      {item.index}
     </li>
   ));
 
-  return <Styled.DropZone>{ListMap}</Styled.DropZone>;
+  return <ul className="droppable">{ListMap}</ul>;
 };
 
 export default React.memo(DragList);
