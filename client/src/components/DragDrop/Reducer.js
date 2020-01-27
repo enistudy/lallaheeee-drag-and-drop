@@ -39,6 +39,7 @@ const reorderDroppable = (state, { droppableId, target, destination }) => ({
       destination,
     ),
   },
+  draggedIndex: destination,
 });
 
 const moveDroppable = (
@@ -51,6 +52,11 @@ const moveDroppable = (
   },
 ) => ({
   ...state,
+  draggedId: {
+    ...state.draggedId,
+    droppableId: droppableDestination.droppableId,
+  },
+  draggedIndex: droppableDestination.index,
   draggableList: {
     ...deepCopy(state.draggableList),
     ...move(source, destination, droppableSource, droppableDestination),
