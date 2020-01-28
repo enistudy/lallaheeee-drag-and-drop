@@ -1,5 +1,5 @@
 const initialValue = {
-  draggedId: null,
+  draggedId: { id: null, droppableId: null, index: null },
   draggedIndex: null,
   draggableList: {
     'drop-1': [

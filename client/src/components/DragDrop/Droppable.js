@@ -38,7 +38,7 @@ const Droppable = ({ droppableId }) => {
     });
   };
 
-  const handleDraggingEnd = () => {
+  const handleDragEnd = () => {
     dragDispatch({
       type: SET_DRAGGED_ITEM,
       payload: { id: null, droppableId: null, index: null },
@@ -46,14 +46,14 @@ const Droppable = ({ droppableId }) => {
   };
 
   return (
-    <section className="droppable">
+    <section className="droppable" onDrop={handleDragEnd}>
       {draggableList[droppableId].map((item, idx) => (
         <Draggable
           key={item.draggableId}
           draggableId={item.draggableId}
           onDragStart={e => handleDragStart(e, idx)}
           onDragEnter={e => handleDragEnter(e, idx)}
-          onDragEnd={handleDraggingEnd}
+          onDragEnd={handleDragEnd}
         />
       ))}
     </section>
