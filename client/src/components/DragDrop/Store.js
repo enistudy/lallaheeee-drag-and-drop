@@ -18,7 +18,7 @@ const DragDropStore = ({ children }) => {
 
   const getList = id => draggableList[id];
 
-  const handleDragEnd = ({ source, destination }) => {
+  const reorderDragList = ({ source, destination }) => {
     if (!destination) return;
 
     if (source.droppableId === destination.droppableId) {
@@ -51,7 +51,7 @@ const DragDropStore = ({ children }) => {
         draggableList,
         dragDispatch,
         draggedIndex,
-        handleDragEnd,
+        reorderDragList,
         getList,
       }}
     >

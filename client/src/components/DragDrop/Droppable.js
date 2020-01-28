@@ -9,7 +9,7 @@ const Droppable = ({ droppableId }) => {
     draggableList,
     dragDispatch,
     draggedId,
-    handleDragEnd,
+    reorderDragList,
     draggedIndex,
   } = useContext(DragDropContext);
 
@@ -26,7 +26,7 @@ const Droppable = ({ droppableId }) => {
   };
 
   const handleDragEnter = (e, idx) => {
-    handleDragEnd({
+    reorderDragList({
       source: {
         droppableId: draggedId.droppableId,
         index: draggedIndex,
