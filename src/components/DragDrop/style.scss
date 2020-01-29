@@ -1,11 +1,22 @@
 .draggable {
-  height: 4rem;
-  width: 6rem;
-  border: gray 0.05rem solid;
-  border-radius: 0.2rem;
-  margin: 0.2rem;
-  padding: 1.3rem;
-  text-align: center;
+  &{
+    background: white;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0.1rem 0 rgba(9,45,66,0.25);
+    cursor: grab;
+    font-size: 1rem;
+    min-width: 9rem;
+  }
+
+  &:hover {
+    background: #f5f6f7;
+  }
+
+  h3 {
+    font-size : 0.9rem;
+  }
 }
 
 .droppable {
@@ -13,7 +24,9 @@
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
-  border: 1px red solid;
+
+  background: #dfe3e6;
+  border-radius: 0.5rem;
 }
 
 .dragdrop-container {

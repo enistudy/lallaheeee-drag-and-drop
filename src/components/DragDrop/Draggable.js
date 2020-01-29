@@ -41,7 +41,7 @@ const Draggable = ({
       onDragOver={event => event.preventDefault()}
       ref={selfRef}
     >
-      <h1> Item </h1>
+      <h3> Item </h3>
       <p>{`# ${draggableId}`}</p>
     </article>
   );
