@@ -28,7 +28,7 @@ const useDroppable = ({ ref, onDrop }) => {
     return removeEvent(ele);
   };
 
-  useEffect(addEvent, []);
+  useEffect(addEvent, [onDrop]);
 
   return {
     dropstate,
