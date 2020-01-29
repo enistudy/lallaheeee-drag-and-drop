@@ -1,23 +1,20 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
-const Header = styled.header`
+header {
   display: flex;
   justify-content: space-between;
-`;
+}
 
-const Logo = styled.img`
+.logo {
   width: 5rem;
   height: 5rem;
   padding: 1rem 1rem;
-`;
+}
 
-const Li = styled.li`
+li {
   display: inline;
   padding: 0 4rem;
-`;
+}
 
-const A = styled(Link)`
+a {
   & {
     line-height: 5rem;
     color: #4a4c88;
@@ -29,11 +26,4 @@ const A = styled(Link)`
   &:hover {
     opacity: 1;
   }
-`;
-
-export {
-  Header,
-  Logo,
-  Li,
-  A,
-};
+}

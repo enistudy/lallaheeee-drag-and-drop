@@ -1,21 +1,23 @@
 import React from 'react';
-import * as Styled from './style';
+import { Link } from 'react-router-dom';
 import logo from './logo.png';
 
+import './style.scss';
+
 const Header = () => (
-  <Styled.Header>
-    <Styled.Logo src={logo} alt={logo} />
+  <header>
+    <img className="logo" src={logo} alt={logo} />
     <nav>
       <ul>
-        <Styled.Li>
-          <Styled.A to="/">Drag & Drop</Styled.A>
-        </Styled.Li>
-        <Styled.Li>
-          <Styled.A to="/usedraggable">UseDraggable</Styled.A>
-        </Styled.Li>
+        <li>
+          <Link to="/">Drag & Drop</Link>
+        </li>
+        <li>
+          <Link to="/usedraggable">UseDraggable</Link>
+        </li>
       </ul>
     </nav>
-  </Styled.Header>
+  </header>
 );
 
 export default Header;
