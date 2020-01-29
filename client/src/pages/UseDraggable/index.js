@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../../components/Header';
-import DragDrop from '../../components/DragDrop';
+import Example from '../../components/Example';
 
-const Home = () => (
+const useDraggable = () => (
   <>
     <Header />
     <main>
-      <DragDrop />
+      <Example />
     </main>
   </>
 );
 
-export default Home;
+export default useDraggable;

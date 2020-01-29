@@ -10,6 +10,9 @@ const Header = () => (
         <Styled.Li>
           <Styled.A to="/">Drag & Drop</Styled.A>
         </Styled.Li>
+        <Styled.Li>
+          <Styled.A to="/usedraggable">UseDraggable</Styled.A>
+        </Styled.Li>
       </ul>
     </nav>
   </Styled.Header>
