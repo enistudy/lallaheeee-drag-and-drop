@@ -7,7 +7,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   output: {
     filename: 'static/[name].[hash].js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
+    path: path.join(__dirname, '../build'),
+    publicPath: './',
   },
 });

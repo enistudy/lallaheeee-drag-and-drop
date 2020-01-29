@@ -8,8 +8,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: 'client/public/index.html',
-      favicon: 'client/public/favicon.ico',
+      template: './client/public/index.html',
+      favicon: './client/public/favicon.ico',
     }),
   ],
   module: {
