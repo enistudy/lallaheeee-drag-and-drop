@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 const useDroppable = ({ ref, onDrop }) => {
   const [dropstate, setDropState] = useState('droppable');
 
+  const dragOver = e => {
+    e.preventDefault();
+  };
+
   const drop = e => {
     e.preventDefault();
     onDrop(e.dataTransfer.getData('source'));
@@ -11,6 +15,7 @@ const useDroppable = ({ ref, onDrop }) => {
 
   const removeEvent = ele => () => {
     ele.removeEventListener('drop', drop);
+    ele.removeEventListener('dragover', dragOver);
   };
 
   const addEvent = () => {
@@ -18,6 +23,7 @@ const useDroppable = ({ ref, onDrop }) => {
     if (!ele) return;
 
     ele.addEventListener('drop', drop);
+    ele.addEventListener('dragover', dragOver);
 
     return removeEvent(ele);
   };
