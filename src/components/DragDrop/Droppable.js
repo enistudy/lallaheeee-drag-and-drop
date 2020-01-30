@@ -36,6 +36,22 @@ const Droppable = ({ droppableId }) => {
         index: idx,
       },
     });
+    e.stopPropagation();
+  };
+
+  const onDragEnter = () => {
+    if (droppableId === draggedId.droppableId) return;
+
+    reorderDragList({
+      source: {
+        droppableId: draggedId.droppableId,
+        index: draggedIndex,
+      },
+      destination: {
+        droppableId,
+        index: draggableList[droppableId].length,
+      },
+    });
   };
 
   const handleDragEnd = () => {
@@ -46,7 +62,11 @@ const Droppable = ({ droppableId }) => {
   };
 
   return (
-    <section className="droppable" onDrop={handleDragEnd}>
+    <section
+      className="droppable"
+      onDrop={handleDragEnd}
+      onDragEnter={onDragEnter}
+    >
       {draggableList[droppableId].map((item, idx) => (
         <Draggable
           key={item.draggableId}
